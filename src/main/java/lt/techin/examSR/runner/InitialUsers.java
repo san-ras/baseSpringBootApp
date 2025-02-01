@@ -1,5 +1,6 @@
 package lt.techin.examSR.runner;
 
+import lombok.AllArgsConstructor;
 import lt.techin.examSR.model.Roles;
 import lt.techin.examSR.model.User;
 import lt.techin.examSR.repository.UserRepository;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Set;
 
-
+@AllArgsConstructor
 @Component
 @Order(1)
 public class InitialUsers implements CommandLineRunner {
@@ -18,10 +19,6 @@ public class InitialUsers implements CommandLineRunner {
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
 
-    public InitialUsers(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     @Override
     public void run(String... args) throws Exception {

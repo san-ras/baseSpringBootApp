@@ -1,53 +1,27 @@
 package lt.techin.examSR.rest.dto;
 
-import lt.techin.examSR.model.Item;
-import lt.techin.examSR.model.Property;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ItemDto {
 
     private Long id;
+
+    @NotNull(message = "Title must be provided")
+    @Size(min = 1, max = 50, message = "Title's length must be 1 to 50 characters")
     private String title;
-    private List<Property> properties;
 
+    private List<PropertyDto> properties = new ArrayList<>();
 
-    public ItemDto() {
-    }
-
-    public ItemDto(Item item) {
-        this.id = item.getId();
-        this.title = item.getTitle();
-        this.properties = item.getProperties();
-    }
-
-    public ItemDto(Long id, String title, List<Property> properties) {
-        this.id = id;
-        this.title = title;
-        this.properties = properties;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public List<Property> getProperties() {
-        return properties;
-    }
-
-    public void setProperties(List<Property> properties) {
-        this.properties = properties;
-    }
 }

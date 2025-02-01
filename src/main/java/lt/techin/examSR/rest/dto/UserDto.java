@@ -19,6 +19,7 @@ public class UserDto {
         this.email = user.getEmail();
         this.roles = user.getRoles().stream().map(Enum::name).collect(Collectors.toSet());
     }
+
     public UserDto() {
     }
 

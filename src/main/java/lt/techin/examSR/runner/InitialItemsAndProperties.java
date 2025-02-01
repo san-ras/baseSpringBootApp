@@ -1,5 +1,6 @@
 package lt.techin.examSR.runner;
 
+import lombok.AllArgsConstructor;
 import lt.techin.examSR.model.Item;
 import lt.techin.examSR.model.Property;
 import lt.techin.examSR.repository.ItemRepository;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
-
+@AllArgsConstructor
 @Component
 @Order(2)
 public class InitialItemsAndProperties implements CommandLineRunner {
@@ -18,10 +19,6 @@ public class InitialItemsAndProperties implements CommandLineRunner {
     private ItemRepository itemRepository;
     private PropertyRepository propertyRepository;
 
-    public InitialItemsAndProperties(ItemRepository itemRepository, PropertyRepository propertyRepository) {
-        this.itemRepository = itemRepository;
-        this.propertyRepository = propertyRepository;
-    }
 
     @Override
     public void run(String... args) throws Exception {

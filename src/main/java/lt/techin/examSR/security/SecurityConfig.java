@@ -56,7 +56,8 @@ public class SecurityConfig {
 //                                .requestMatchers(HttpMethod.DELETE, GENRES, MEDIA, COMMENTS).hasAuthority(ROLE_ADMIN)
 //                                .requestMatchers(HttpMethod.PUT, GENRES, MEDIA, COMMENTS).hasAuthority(ROLE_ADMIN)
                                 .requestMatchers("/auth/**", "/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**", "/webjars/**").permitAll()
-                                .anyRequest().authenticated()
+//                                .anyRequest().authenticated()
+                                .anyRequest().permitAll()
                 )
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .sessionManagement(sessionManagement ->
